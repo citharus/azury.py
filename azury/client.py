@@ -88,3 +88,11 @@ class Client:
             **params: Any,
     ) -> aiohttp.ClientResponse:
         return await self._request("GET", service, endpoint, **params)
+
+    async def post(
+            self,
+            service: str,
+            endpoint: list[str],
+            **params: Any,
+    ) -> aiohttp.ClientResponse:
+        return await self._request("POST", service, endpoint, **params)
