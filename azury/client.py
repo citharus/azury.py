@@ -109,3 +109,16 @@ class Client:
             endpoint,
             **params,
         )
+
+    async def delete(
+            self,
+            service: str,
+            endpoint: list[str],
+            **params: Any,
+    ) -> bool:
+        return "Success" in await self._request(
+            "POST",
+            service,
+            endpoint,
+            **params,
+        )
