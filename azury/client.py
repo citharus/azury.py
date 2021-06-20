@@ -96,3 +96,16 @@ class Client:
             **params: Any,
     ) -> aiohttp.ClientResponse:
         return await self._request("POST", service, endpoint, **params)
+
+    async def put(
+            self,
+            service: str,
+            endpoint: list[str],
+            **params: Any,
+    ) -> bool:
+        return "Success" in await self._request(
+            "POST",
+            service,
+            endpoint,
+            **params,
+        )
