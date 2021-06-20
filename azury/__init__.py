@@ -12,6 +12,12 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from .client import *
+__title__ = 'azury'
+__author__ = 'citharus'
+__license__ = 'MIT'
+__copyright__ = 'Copyright 2021-present citharus'
+__version__ = '0.0.1'
 
-__version__: str = "0.0.1"
+__path__ = __import__('pkgutil').extend_path(__path__, __name__)
+
+from .client import *
