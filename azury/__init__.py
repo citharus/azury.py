@@ -18,6 +18,4 @@ __license__ = 'MIT'
 __copyright__ = 'Copyright 2021-present citharus'
 __version__ = '0.0.1'
 
-__path__ = __import__('pkgutil').extend_path(__path__, __name__)
-
 from .client import *
