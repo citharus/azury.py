@@ -16,7 +16,7 @@ __title__ = 'azury'
 __author__ = 'citharus'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2021-present citharus'
-__version__ = '0.0.1'
+__version__ = '0.0.1a'
 
 import logging
 from collections import namedtuple
@@ -24,6 +24,6 @@ from collections import namedtuple
 from azury.client import *
 
 VersionInfo = namedtuple('VersionInfo', 'major minor micro releaselevel serial')
-version_info = VersionInfo(major=2, minor=0, micro=0, releaselevel='alpha', serial=0)
+version_info = VersionInfo(major=0, minor=0, micro=1, releaselevel='alpha', serial=0)
 
 logging.getLogger(__name__).addHandler(logging.NullHandler())
