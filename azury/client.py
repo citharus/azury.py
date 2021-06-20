@@ -80,3 +80,11 @@ class Client:
             headers=headers
         )
         return response
+
+    async def get(
+            self,
+            service: str,
+            endpoint: list[str],
+            **params: Any,
+    ) -> aiohttp.ClientResponse:
+        return await self._request("GET", service, endpoint, **params)
