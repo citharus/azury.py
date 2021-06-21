@@ -29,7 +29,7 @@ __all__: list[str] = ["Client"]
 
 
 class Client:
-    """The representation of the asyncio azury :class:`Client`.
+    r"""The representation of the asyncio azury :class:`Client`.
 
     Parameters
     ----------
