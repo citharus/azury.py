@@ -82,6 +82,7 @@ class Client:
         await self.close()
 
     async def close(self) -> None:
+        r"""Close the current :class:`aiohttp.ClientSession`"""
         await self.session.close()
         logging.info(f'Closed Session {id(self.session)}')
 
@@ -103,7 +104,7 @@ class Client:
         logging.info(f'Send {method} request to {url}')
         return response
 
-    async def get(
+    async def _get(
             self,
             service: str,
             endpoint: list[str],
@@ -111,7 +112,7 @@ class Client:
     ) -> aiohttp.ClientResponse:
         return await self._request('GET', service, endpoint, **params)
 
-    async def post(
+    async def _post(
             self,
             service: str,
             endpoint: list[str],
@@ -119,7 +120,7 @@ class Client:
     ) -> aiohttp.ClientResponse:
         return await self._request('POST', service, endpoint, **params)
 
-    async def put(
+    async def _put(
             self,
             service: str,
             endpoint: list[str],
@@ -132,7 +133,7 @@ class Client:
             **params,
         )
 
-    async def delete(
+    async def _delete(
             self,
             service: str,
             endpoint: list[str],
