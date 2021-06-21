@@ -12,4 +12,20 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+__version__ = '0.0.1a'
+
+from collections import namedtuple
+
 from .client import *
+
+VersionInfo = namedtuple(
+    'VersionInfo',
+    'major minor micro releaselevel serial',
+)
+version_info = VersionInfo(
+    major=0,
+    minor=0,
+    micro=1,
+    releaselevel='alpha',
+    serial=0,
+)

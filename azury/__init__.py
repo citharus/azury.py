@@ -12,20 +12,14 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-__title__ = 'azury'
+__title__ = 'azury.py'
 __author__ = 'citharus'
-__license__ = 'MIT'
+__license__ = 'Apache License 2.0'
 __copyright__ = 'Copyright 2021-present citharus'
-__version__ = '0.0.1a'
 __link__ = 'https://github.com/citharus/azury.py'
 
 import logging
-from collections import namedtuple
 
 from azury import asynczury
-
-
-VersionInfo = namedtuple('VersionInfo', 'major minor micro releaselevel serial')
-version_info = VersionInfo(major=0, minor=0, micro=1, releaselevel='alpha', serial=0)
 
 logging.getLogger(__name__).addHandler(logging.NullHandler())
