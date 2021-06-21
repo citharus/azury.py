@@ -17,6 +17,7 @@ __author__ = 'citharus'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2021-present citharus'
 __version__ = '0.0.1a'
+__link__ = 'https://github.com/citharus/azury.py'
 
 import logging
 from collections import namedtuple
