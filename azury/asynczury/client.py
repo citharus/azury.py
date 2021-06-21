@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 import sys
 from types import TracebackType
@@ -35,9 +36,11 @@ class Client:
     token: :class:`str`
         The personal access token obtained from azury.gg
     connector: Optional[:class:`aiohttp.BaseConnector`]
-        The connector to use for connection pooling.
+        The :class:`aiohttp.BaseConnector` to use for connection pooling.
+        Defaults to ``None``
     session: Optional[:class:`aiohttp.ClientSession`]
-        The session to use for making requests.
+        The :class:`aiohttp.ClientSession` to use for making requests.
+        Defaults to ``None``
     """
 
     def __init__(
