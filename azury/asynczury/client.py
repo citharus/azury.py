@@ -34,7 +34,7 @@ class Client:
     Parameters
     ----------
     token: :class:`str`
-        The personal access token obtained from azury.gg
+        The personal access token obtained from azury.gg.
     connector: Optional[:class:`aiohttp.BaseConnector`]
         The :class:`aiohttp.BaseConnector` to use for connection pooling.
         Defaults to ``None``
@@ -44,6 +44,13 @@ class Client:
     loop: Optional[:class:`asyncio.AbstractEventLoop`]
         The :class:`asyncio.AbstractEventLoop` to use for asynchronous
         operations. Defaults to ``None``.
+
+    Attributes
+    ----------
+    url: :class:`str`
+        The base url for api requests.
+    token: :class:`str`
+        The personal access token obtained from azury.gg.
     """
 
     def __init__(
