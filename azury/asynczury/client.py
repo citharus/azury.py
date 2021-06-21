@@ -21,7 +21,7 @@ from typing import Any, Optional, Type
 import aiohttp
 from yarl import URL
 
-from azury import __version__
+from azury import __version__, __link__
 
 __all__: list[str] = ["Client"]
 
@@ -41,6 +41,11 @@ class Client:
         if session is None:
             session: aiohttp.ClientSession = aiohttp.ClientSession(
                 connector=connector,
+                headers={
+                    "User-Agent": f"azury.py ({__link__} {__version__}) "
+                                  f"Python{sys.version[:5]} "
+                                  f"aiohttp/{aiohttp.__version__[:5]}",
+                }
             )
         self.session: aiohttp.ClientSession = session
 
@@ -67,17 +72,11 @@ class Client:
     ) -> aiohttp.ClientResponse:
         url: URL = URL("/".join([self.url, service, *endpoint]))
         params: dict = dict(**params, token=self.token)
-        headers: dict = {
-            "User-Agent": f"azury.py (https://github.com/citharus/azury.py "
-                          f"{__version__}) Python{sys.version[:5]} "
-                          f"aiohttp/{aiohttp.__version__[:5]}",
-        }
 
         response: aiohttp.ClientResponse = await self.session.request(
             method,
             url,
             params=params,
-            headers=headers
         )
         return response
 
