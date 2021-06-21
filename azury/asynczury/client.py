@@ -23,7 +23,8 @@ from typing import Any, Optional, Type
 import aiohttp
 from yarl import URL
 
-from azury import __version__, __link__
+from azury import __link__
+from azury.asynczury import __version__
 
 __all__: list[str] = ["Client"]
 
