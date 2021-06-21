@@ -56,7 +56,6 @@ class Client:
     ) -> None:
         self.url: str = "https://azury.gg/api"
         self.token: str = token
-        self.connector: Optional[aiohttp.BaseConnector] = connector
 
         if session is None:
             session: aiohttp.ClientSession = aiohttp.ClientSession(
