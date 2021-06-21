@@ -14,10 +14,11 @@
 
 from __future__ import annotations
 
+import logging
 import sys
 from types import TracebackType
 from typing import Any, Optional, Type
-import logging
+
 import aiohttp
 from yarl import URL
 
