@@ -54,7 +54,7 @@ class Client:
             session: Optional[aiohttp.ClientSession] = None,
             loop: Optional[asyncio.AbstractEventLoop] = None,
     ) -> None:
-        self.url: str = "https://azury.gg/api"
+        self.url: str = 'https://azury.gg/api'
         self.token: str = token
 
         if session is None:
@@ -62,13 +62,13 @@ class Client:
                 connector=connector,
                 loop=loop,
                 headers={
-                    "User-Agent": f"azury.py ({__link__} {__version__}) "
-                                  f"Python{sys.version[:5]} "
-                                  f"aiohttp{aiohttp.__version__[:5]}",
+                    'User-Agent': f'azury.py ({__link__} {__version__}) '
+                                  f'Python{sys.version[:5]} '
+                                  f'aiohttp{aiohttp.__version__[:5]}',
                 }
             )
         self.session: aiohttp.ClientSession = session
-        logging.info(f"Created Session {id(self.session)}")
+        logging.info(f'Created Session {id(self.session)}')
 
     async def __aenter__(self) -> Client:
         return self
@@ -83,7 +83,7 @@ class Client:
 
     async def close(self) -> None:
         await self.session.close()
-        logging.info(f"Closed Session {id(self.session)}")
+        logging.info(f'Closed Session {id(self.session)}')
 
     async def _request(
             self,
@@ -92,7 +92,7 @@ class Client:
             endpoint: list[str],
             **params: Any,
     ) -> aiohttp.ClientResponse:
-        url: URL = URL("/".join([self.url, service, *endpoint]))
+        url: URL = URL('/'.join([self.url, service, *endpoint]))
         params: dict = dict(**params, token=self.token)
 
         response: aiohttp.ClientResponse = await self.session.request(
@@ -100,7 +100,7 @@ class Client:
             url,
             params=params,
         )
-        logging.info(f"Send {method} request to {url}")
+        logging.info(f'Send {method} request to {url}')
         return response
 
     async def get(
@@ -109,7 +109,7 @@ class Client:
             endpoint: list[str],
             **params: Any,
     ) -> aiohttp.ClientResponse:
-        return await self._request("GET", service, endpoint, **params)
+        return await self._request('GET', service, endpoint, **params)
 
     async def post(
             self,
@@ -117,7 +117,7 @@ class Client:
             endpoint: list[str],
             **params: Any,
     ) -> aiohttp.ClientResponse:
-        return await self._request("POST", service, endpoint, **params)
+        return await self._request('POST', service, endpoint, **params)
 
     async def put(
             self,
@@ -125,8 +125,8 @@ class Client:
             endpoint: list[str],
             **params: Any,
     ) -> bool:
-        return "Success" in await self._request(
-            "POST",
+        return 'Success' in await self._request(
+            'PUT',
             service,
             endpoint,
             **params,
@@ -138,8 +138,8 @@ class Client:
             endpoint: list[str],
             **params: Any,
     ) -> bool:
-        return "Success" in await self._request(
-            "POST",
+        return 'Success' in await self._request(
+            'POST',
             service,
             endpoint,
             **params,
