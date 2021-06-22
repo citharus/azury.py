@@ -14,6 +14,7 @@
 
 __version__ = '0.0.1a'
 
+import logging
 from collections import namedtuple
 
 from .client import *
@@ -29,3 +30,5 @@ version_info = VersionInfo(
     releaselevel='alpha',
     serial=0,
 )
+
+logging.getLogger(__name__).addHandler(logging.NullHandler())
