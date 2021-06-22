@@ -17,9 +17,23 @@ __author__ = 'citharus'
 __license__ = 'Apache License 2.0'
 __copyright__ = 'Copyright 2021-present citharus'
 __link__ = 'https://github.com/citharus/azury.py'
+__version__ = '0.0.0'
 
 import logging
+from collections import namedtuple
 
 from azury import asynczury
+
+VersionInfo = namedtuple(
+    'VersionInfo',
+    'major minor micro releaselevel serial',
+)
+version_info = VersionInfo(
+    major=0,
+    minor=0,
+    micro=0,
+    releaselevel='none',
+    serial=0,
+)
 
 logging.getLogger(__name__).addHandler(logging.NullHandler())
