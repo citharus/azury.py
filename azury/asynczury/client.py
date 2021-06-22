@@ -28,6 +28,8 @@ from azury.asynczury import __version__
 
 __all__: list[str] = ["Client"]
 
+logger: logging.Logger = logging.getLogger(__name__)
+
 
 class Client:
     r"""The representation of the asyncio azury :class:`Client`.
@@ -76,7 +78,7 @@ class Client:
                 }
             )
         self.session: aiohttp.ClientSession = session
-        logging.info(f'Created Session {id(self.session)}')
+        logger.info(f'Created Session {id(self.session)}')
 
     async def __aenter__(self) -> Client:
         return self
@@ -92,7 +94,7 @@ class Client:
     async def close(self) -> None:
         r"""Close the current :class:`aiohttp.ClientSession`"""
         await self.session.close()
-        logging.info(f'Closed Session {id(self.session)}')
+        logger.info(f'Closed Session {id(self.session)}')
 
     async def _request(
             self,
@@ -109,7 +111,7 @@ class Client:
             url,
             params=params,
         )
-        logging.info(f'Send {method} request to {url}')
+        logger.info(f'Send {method} request to {url}')
         return response
 
     async def _get(
