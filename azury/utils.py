@@ -21,6 +21,17 @@ from azury.types import *
 
 
 def parse_time(timestamp: str) -> datetime:
+    """A function to convert the ISO 8601 timestamp to :class:`datetime`.
+
+    Parameters
+    ----------
+    timestamp: :class:`str`
+        The ISO 8601 timestamp to be converted.
+
+    Returns
+    -------
+    datetime
+    """
     return datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S.%f%z')
 
 
