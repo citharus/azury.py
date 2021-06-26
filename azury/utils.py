@@ -45,8 +45,8 @@ def to_user(data: Dict[str, Union[str, list]]) -> User:
     data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
         The user's data
 
-    Return
-    ------
+    Returns
+    -------
     :class:`User`
     """
     return User(
@@ -71,8 +71,8 @@ def to_team(data: Dict[str, Union[str, list]]) -> Team:
         data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
             The teams's data
 
-        Return
-        ------
+        Returns
+        -------
         :class:`Team`
         """
     return Team(
