@@ -50,7 +50,7 @@ class Client:
 
     Attributes
     ----------
-    url: :class:`str`
+    base: :class:`str`
         The base url for api requests.
     token: :class:`str`
         The personal access token obtained from azury.gg.
@@ -64,7 +64,7 @@ class Client:
             session: Optional[aiohttp.ClientSession] = None,
             loop: Optional[asyncio.AbstractEventLoop] = None,
     ) -> None:
-        self.url: str = 'https://azury.gg/api'
+        self.base: str = 'https://azury.gg/api'
         self.token: str = token
 
         if session is None:
@@ -103,7 +103,7 @@ class Client:
             endpoint: list[str],
             **params: Any,
     ) -> aiohttp.ClientResponse:
-        url: URL = URL('/'.join([self.url, service, *endpoint]))
+        url: URL = URL('/'.join([self.base, service, *endpoint]))
         params: dict = dict(**params, token=self.token)
 
         response: aiohttp.ClientResponse = await self.session.request(
