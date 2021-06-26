@@ -33,6 +33,7 @@ def parse_iso(timestamp: str) -> datetime:
     Returns
     -------
     datetime
+        The converted :class:`datetime` timestamp.
     """
     return datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S.%f%z')
 
@@ -43,11 +44,12 @@ def to_user(data: Dict[str, Union[str, list]]) -> User:
     Parameters
     ----------
     data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
-        The user's data
+        The user's data.
 
     Returns
     -------
     :class:`User`
+        The converted :class:`User` object.
     """
     return User(
         avatar=data['avatar'],
@@ -69,11 +71,12 @@ def to_team(data: Dict[str, Union[str, list]]) -> Team:
         Parameters
         ----------
         data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
-            The teams's data
+            The teams's data.
 
         Returns
         -------
         :class:`Team`
+            The converted :class:`Team` object.
         """
     return Team(
         members=[int(user) for user in data['members']],
@@ -93,11 +96,12 @@ def to_file(data: Dict[str, Union[str, bool, int, list]]) -> File:
         Parameters
         ----------
         data: Dict[:class:`str`, Union[:class:`str`, :class:`bool`, :class:`int`, :class:`list`]]
-            The files' data
+            The files' data.
 
         Return
         ------
         :class:`File`
+            The converted :class:`File` object.
         """
     return File(
         flags=data['flags'],
