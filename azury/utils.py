@@ -86,6 +86,17 @@ def to_team(data: Dict[str, Union[str, list]]) -> Team:
 
 
 def to_file(data: Dict[str, Union[str, bool, int, list]]) -> File:
+    """A function to convert the files' data to a :class:`File` object.
+
+        Parameters
+        ----------
+        data: Dict[:class:`str`, Union[:class:`str`, :class:`bool`, :class:`int`, :class:`list`]]
+            The files' data
+
+        Return
+        ------
+        :class:`File`
+        """
     return File(
         flags=data['flags'],
         id=data['_id'],
