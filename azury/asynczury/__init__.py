@@ -18,6 +18,7 @@ import logging
 from collections import namedtuple
 
 from .client import *
+from azury.types import *
 
 VersionInfo = namedtuple(
     'VersionInfo',
