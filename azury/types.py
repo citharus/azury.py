@@ -34,6 +34,18 @@ class User:
 
 
 @dataclass
+class Team:
+    members: list[User]
+    icon: str
+    flags: list
+    id: str
+    name: str
+    owner: User
+    created_at: datetime
+    updated_at: datetime
+
+
+@dataclass
 class File:
     id: str
     user: User
