@@ -39,7 +39,7 @@ class Team:
     flags: list
     id: str
     name: str
-    owner: User
+    owner: int
     created_at: datetime
     updated_at: datetime
 
