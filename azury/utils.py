@@ -20,7 +20,7 @@ from typing import Dict, Union
 from azury.types import *
 
 
-def parse_time(timestamp: str) -> datetime:
+def parse_iso(timestamp: str) -> datetime:
     """A function to convert the ISO 8601 timestamp to :class:`datetime`.
 
     Parameters
@@ -44,8 +44,8 @@ def to_user(data: Dict[str, Union[str, list]]) -> User:
         id=int(data['_id']),
         ip=data['ip'],
         token=data['token'],
-        created_at=parse_time(data['createdAt']),
-        updated_at=parse_time(data['updatedAt']),
+        created_at=parse_iso(data['createdAt']),
+        updated_at=parse_iso(data['updatedAt']),
         username=data['username']
     )
 
@@ -58,8 +58,8 @@ def to_team(data: Dict[str, Union[str, list]]) -> Team:
         id=data['_id'],
         name=data['name'],
         owner=int(data['owner']),
-        created_at=parse_time(data['createdAt']),
-        updated_at=parse_time(data['updatedAt']),
+        created_at=parse_iso(data['createdAt']),
+        updated_at=parse_iso(data['updatedAt']),
     )
 
 
@@ -76,6 +76,6 @@ def to_file(data: Dict[str, Union[str, bool, int, list]]) -> File:
         name=data['name'],
         size=data['size'],
         type=data['type'],
-        created_at=parse_time(data['createdAt']),
-        updated_at=parse_time(data['updatedAt'])
+        created_at=parse_iso(data['createdAt']),
+        updated_at=parse_iso(data['updatedAt'])
     )
