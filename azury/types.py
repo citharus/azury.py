@@ -53,7 +53,7 @@ class File:
     favorite: bool
     downloads: int
     views: int
-    user: User
+    user: int
     name: str
     size: str
     type: str
