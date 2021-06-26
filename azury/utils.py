@@ -62,6 +62,17 @@ def to_user(data: Dict[str, Union[str, list]]) -> User:
 
 
 def to_team(data: Dict[str, Union[str, list]]) -> Team:
+    """A function to convert the teams's data to a :class:`Team` object.
+
+        Parameters
+        ----------
+        data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
+            The teams's data
+
+        Return
+        ------
+        :class:`Team`
+        """
     return Team(
         members=[int(user) for user in data['members']],
         icon=data['icon'],
