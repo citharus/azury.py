@@ -59,6 +59,8 @@ class Client:
         The base url for api requests.
     token: :class:`str`
         The personal access token obtained from azury.gg.
+    session: :class:`aiohttp.ClientSession`
+        The :class:`aiohttp.ClientSession` used by the :class:`Client`.
 
     Examples
     --------
