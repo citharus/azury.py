@@ -21,16 +21,16 @@ __all__: list[str] = ['User']
 
 @dataclass
 class User:
+    avatar: str
+    flags: list
+    connections: list[set]
+    access: list
     id: int
     ip: IPv6Address
     token: str
     created_at: datetime
     updated_at: datetime
     username: str
-    avatar: str
-    flags: list
-    connections: list[set]
-    access: list
 
 
 @dataclass
