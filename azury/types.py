@@ -20,6 +20,7 @@ __all__: list[str] = ['User', 'Team', 'File']
 
 @dataclass
 class User:
+    """The :class:`dataclass` representing an :class:`User`."""
     avatar: str
     flags: list
     connections: list[set]
@@ -34,6 +35,7 @@ class User:
 
 @dataclass
 class Team:
+    """The :class:`dataclass` representing a :class:`Team`."""
     members: list[int]
     icon: str
     flags: list
@@ -46,6 +48,7 @@ class Team:
 
 @dataclass
 class File:
+    """The :class:`dataclass` representing a :class:`File`."""
     flags: list
     id: str
     archived: bool
