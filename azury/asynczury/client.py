@@ -34,6 +34,11 @@ logger: logging.Logger = logging.getLogger(__name__)
 class Client:
     r"""The representation of the asyncio azury :class:`Client`.
 
+    The :class:`Client` handles the :class:`aiohttp.ClientSession` creation
+    and provides the required request methods for `asynczury`.
+
+    The :class:`Client` also provides an asynchronous context manager.
+
     Parameters
     ----------
     token: :class:`str`
@@ -54,6 +59,14 @@ class Client:
         The base url for api requests.
     token: :class:`str`
         The personal access token obtained from azury.gg.
+
+    Examples
+    --------
+    >>> token = "TOKEN"
+    >>> async def main() -> None:
+    ...     async with Client(token) as client:
+    ...         print(client.session)
+    <aiohttp.client.ClientSession object at 0x7f8a6faaea00>
     """
 
     def __init__(
