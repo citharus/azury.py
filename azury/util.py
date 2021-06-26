@@ -15,7 +15,25 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Dict, Union
+
+from azury.types import *
 
 
 def parse_time(timestamp: str) -> datetime:
     return datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S.%f%z')
+
+
+def to_user(data: Dict[str, Union[str, list]]) -> User:
+    return User(
+        avatar=data['avatar'],
+        flags=data['flags'],
+        connections=data['connections'],
+        access=data['access'],
+        id=int(data['_id']),
+        ip=data['ip'],
+        token=data['token'],
+        created_at=parse_time(data['createdAt']),
+        updated_at=parse_time(data['updatedAt']),
+        username=data['username']
+    )
