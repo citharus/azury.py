@@ -12,13 +12,17 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+__title__ = 'azury.py'
+__author__ = 'citharus'
+__license__ = 'Apache License 2.0'
+__copyright__ = 'Copyright 2021-present citharus'
+__link__ = 'https://github.com/citharus/azury.py'
 __version__ = '0.0.1a'
 
 import logging
 from collections import namedtuple
 
 from .client import *
-from azury.types import *
 
 VersionInfo = namedtuple(
     'VersionInfo',
