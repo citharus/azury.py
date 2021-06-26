@@ -47,16 +47,16 @@ class Team:
 
 @dataclass
 class File:
-    id: str
-    user: User
-    size: str
-    type: str
-    created_at: datetime
-    updated_at: datetime
-    name: str
     flags: list
+    id: str
     archived: bool
     trashed: bool
     favorite: bool
     downloads: int
     views: int
+    user: User
+    name: str
+    size: str
+    type: str
+    created_at: datetime
+    updated_at: datetime
