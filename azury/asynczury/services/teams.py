@@ -14,9 +14,10 @@
 
 from __future__ import annotations
 
-from azury.asynczury import Client
+from azury.asynczury import Client, Team as TeamType
 
 
 class Team:
-    def __init__(self, client: Client) -> None:
+    def __init__(self, client: Client, data: TeamType) -> None:
         self.client: Client = client
+        self.data: TeamType = data
