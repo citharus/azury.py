@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from ipaddress import IPv6Address
 
-__all__: list[str] = ['User']
+__all__: list[str] = ['User', 'Team', 'File']
 
 
 @dataclass
