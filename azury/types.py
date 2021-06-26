@@ -31,3 +31,20 @@ class User:
     flags: list
     connections: list[set]
     access: list
+
+
+@dataclass
+class File:
+    id: str
+    user: User
+    size: str
+    type: str
+    created_at: datetime
+    updated_at: datetime
+    name: str
+    flags: list
+    archived: bool
+    trashed: bool
+    favorite: bool
+    downloads: int
+    views: int
