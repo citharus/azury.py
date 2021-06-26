@@ -24,6 +24,7 @@ from collections import namedtuple
 
 from azury import asynczury
 from azury.types import *
+from azury.utils import *
 
 VersionInfo = namedtuple(
     'VersionInfo',
