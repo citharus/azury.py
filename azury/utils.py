@@ -36,6 +36,17 @@ def parse_iso(timestamp: str) -> datetime:
 
 
 def to_user(data: Dict[str, Union[str, list]]) -> User:
+    """A function to convert the user's data to a :class:`User` object.
+
+    Parameters
+    ----------
+    data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
+        The user's data
+
+    Return
+    ------
+    :class:`User`
+    """
     return User(
         avatar=data['avatar'],
         flags=data['flags'],
