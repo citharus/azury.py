@@ -34,7 +34,7 @@ class User:
 
 @dataclass
 class Team:
-    members: list[User]
+    members: list[int]
     icon: str
     flags: list
     id: str
