@@ -44,9 +44,6 @@ class Client:
     session: Optional[:class:`aiohttp.ClientSession`]
         The :class:`aiohttp.ClientSession` to use for making requests.
         Defaults to ``None``
-    loop: Optional[:class:`asyncio.AbstractEventLoop`]
-        The :class:`asyncio.AbstractEventLoop` to use for asynchronous
-        operations. Defaults to ``None``.
 
     Attributes
     ----------
@@ -62,7 +59,6 @@ class Client:
             *,
             connector: Optional[aiohttp.BaseConnector] = None,
             session: Optional[aiohttp.ClientSession] = None,
-            loop: Optional[asyncio.AbstractEventLoop] = None,
     ) -> None:
         self.base: str = 'https://azury.gg/api'
         self.token: str = token
@@ -70,7 +66,6 @@ class Client:
         if session is None:
             session: aiohttp.ClientSession = aiohttp.ClientSession(
                 connector=connector,
-                loop=loop,
                 headers={
                     'User-Agent': f'azury.py ({__link__} {__version__}) '
                                   f'Python{sys.version[:5]} '
