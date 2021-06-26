@@ -37,3 +37,16 @@ def to_user(data: Dict[str, Union[str, list]]) -> User:
         updated_at=parse_time(data['updatedAt']),
         username=data['username']
     )
+
+
+def to_team(data: Dict[str, Union[str, list]]) -> Team:
+    return Team(
+        members=[int(user) for user in data['members']],
+        icon=data['icon'],
+        flags=data['flags'],
+        id=data['_id'],
+        name=data['name'],
+        owner=int(data['owner']),
+        created_at=parse_time(data['createdAt']),
+        updated_at=parse_time(data['updatedAt']),
+    )
