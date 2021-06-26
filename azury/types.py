@@ -14,7 +14,6 @@
 
 from dataclasses import dataclass
 from datetime import datetime
-from ipaddress import IPv6Address
 
 __all__: list[str] = ['User', 'Team', 'File']
 
@@ -26,7 +25,7 @@ class User:
     connections: list[set]
     access: list
     id: int
-    ip: IPv6Address
+    ip: str
     token: str
     created_at: datetime
     updated_at: datetime
