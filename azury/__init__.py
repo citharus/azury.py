@@ -23,6 +23,7 @@ import logging
 from collections import namedtuple
 
 from azury import asynczury
+from azury.types import *
 
 VersionInfo = namedtuple(
     'VersionInfo',
