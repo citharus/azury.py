@@ -50,3 +50,21 @@ def to_team(data: Dict[str, Union[str, list]]) -> Team:
         created_at=parse_time(data['createdAt']),
         updated_at=parse_time(data['updatedAt']),
     )
+
+
+def to_file(data: Dict[str, Union[str, bool, int, list]]) -> File:
+    return File(
+        flags=data['flags'],
+        id=data['_id'],
+        archived=data['archived'],
+        trashed=data['trashed'],
+        favorite=data['favorite'],
+        downloads=data['downloads'],
+        views=data['views'],
+        user=int(data['user']),
+        name=data['name'],
+        size=data['size'],
+        type=data['type'],
+        created_at=parse_time(data['createdAt']),
+        updated_at=parse_time(data['updatedAt'])
+    )
