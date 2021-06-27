@@ -32,7 +32,7 @@ logger: logging.Logger = logging.getLogger(__name__)
 
 
 class Client:
-    r"""The representation of the asyncio azury :class:`Client`.
+    """The representation of the asyncio azury :class:`Client`.
 
     The :class:`Client` handles the :class:`aiohttp.ClientSession` creation
     and provides the required request methods for `asynczury`.
