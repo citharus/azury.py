@@ -14,6 +14,7 @@
 
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Optional
 
 __all__: list[str] = ['User', 'Team', 'File']
 
@@ -51,14 +52,14 @@ class File:
     """The :class:`dataclass` representing a :class:`File`."""
     flags: list
     id: str
-    downloads: int
-    views: int
+    archived: Optional[bool]
+    trashed: Optional[bool]
+    favorite: Optional[bool]
+    downloads: Optional[int]
+    views: Optional[int]
     user: int
     name: str
     size: str
     type: str
     created_at: datetime
     updated_at: datetime
-    archived: bool = None
-    trashed: bool = None
-    favorite: bool = None
