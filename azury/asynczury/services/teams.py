@@ -16,10 +16,11 @@ from __future__ import annotations
 
 from azury.asynczury import Client
 from azury.types import Team
+from .base import Base
 
 
-class Teams:
+class Teams(Base):
     def __init__(self, client: Client, data: Team) -> None:
+        super(Teams, self).__init__(client, 'teams')
         self.client: Client = client
         self.data: Team = data
-        self.service: str = 'teams'
