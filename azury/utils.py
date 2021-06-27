@@ -27,7 +27,7 @@ def parse_iso(timestamp: str) -> datetime:
 
     Parameters
     ----------
-    timestamp: :class:`str`
+    timestamp: str
         The ISO 8601 timestamp to be converted.
 
     Returns
@@ -43,12 +43,12 @@ def to_user(data: Dict[str, Union[str, list]]) -> User:
 
     Parameters
     ----------
-    data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
+    data: Dict[str, Union[str, list]]
         The user's data.
 
     Returns
     -------
-    :class:`User`
+    User
         The converted :class:`User` object.
     """
     return User(
@@ -70,12 +70,12 @@ def to_team(data: Dict[str, Union[str, list]]) -> Team:
 
         Parameters
         ----------
-        data: Dict[:class:`str`, Union[:class:`str`, :class:`list`]]
+        data: Dict[str, Union[str, list]]
             The teams's data.
 
         Returns
         -------
-        :class:`Team`
+        Team
             The converted :class:`Team` object.
         """
     return Team(
@@ -95,12 +95,12 @@ def to_file(data: Dict[str, Union[str, bool, int, list]]) -> File:
 
         Parameters
         ----------
-        data: Dict[:class:`str`, Union[:class:`str`, :class:`bool`, :class:`int`, :class:`list`]]
+        data: Dict[str, Union[str, bool, int, list]]
             The files' data.
 
         Return
         ------
-        :class:`File`
+        File
             The converted :class:`File` object.
         """
     return File(
