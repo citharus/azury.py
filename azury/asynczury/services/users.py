@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+from azury.utils import to_team
 from .base import Base
 
 __all__: list[str] = ['Users']
@@ -23,3 +24,11 @@ class Users(Base):
     def __init__(self, client: Client, data: User) -> None:
         super(Users, self).__init__(client, 'users')
         self.data: User = data
+
+    async def teams(self) -> list[Teams]:
+        teams: list[Teams] = [
+            to_team(team) for team in await (
+                await self.client._get(self.service, ['teams'])
+            ).json()
+        ]
+        return teams
