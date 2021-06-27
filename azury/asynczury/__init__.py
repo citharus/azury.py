@@ -23,6 +23,7 @@ import logging
 from collections import namedtuple
 
 from .client import *
+from .services import *
 
 VersionInfo = namedtuple(
     'VersionInfo',
