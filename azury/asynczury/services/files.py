@@ -26,6 +26,7 @@ class File(FileType):
             self,
             client: Client,
             service: str,
+            team: str,
             *,
             flags: list,
             id: str,
@@ -40,8 +41,6 @@ class File(FileType):
             type: str,
             created_at: datetime,
             updated_at: datetime,
-            /,
-            team: str = ''
     ) -> None:
         super(File, self).__init__(
             flags,
