@@ -1,0 +1,5 @@
+[flake8]
+exclude = test.py
+ignore = F821, F405, F403
+per-file-ignores = __init__.py: F401 
+max-complexity=5
