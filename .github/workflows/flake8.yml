@@ -22,4 +22,5 @@ jobs:
         uses: suo/flake8-github-action@releases/v1
         with:
           checkName: 'python3_9'
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
