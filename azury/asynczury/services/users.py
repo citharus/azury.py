@@ -14,8 +14,6 @@
 
 from __future__ import annotations
 
-from azury.asynczury import Client
-from azury.types import User
 from .base import Base
 
 __all__: list[str] = ['Users']

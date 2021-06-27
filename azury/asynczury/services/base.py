@@ -16,8 +16,6 @@ from __future__ import annotations
 
 import aiohttp
 
-from azury.asynczury import Client
-from azury.types import File as FileType
 from azury.utils import to_file
 
 __all__: list[str] = ['Base']
