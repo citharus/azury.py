@@ -1,0 +1,24 @@
+name: flake8
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  python3_9:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+          architecture: x64
+      - name: Install flake8
+        run: pip install flake8
+      - name: Run flake8
+        uses: cclauss/GitHub-Action-for-Flake8@v0.5.0
+        with:
+          args: flake8 . --count --show-source --statistics
