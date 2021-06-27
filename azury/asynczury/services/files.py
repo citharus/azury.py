@@ -25,6 +25,7 @@ class File(FileType):
     def __init__(
             self,
             client: Client,
+            service: str,
             *,
             flags: list,
             id: str,
@@ -39,6 +40,8 @@ class File(FileType):
             type: str,
             created_at: datetime,
             updated_at: datetime,
+            /,
+            team: str = ''
     ) -> None:
         super(File, self).__init__(
             flags,
@@ -56,3 +59,5 @@ class File(FileType):
             updated_at,
         )
         self.client: Client = client
+        self.service: str = service
+        self.team: str = team
