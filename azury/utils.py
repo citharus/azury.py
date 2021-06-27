@@ -17,7 +17,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Dict, Union
 
-from azury.types import *
+from azury.types import User, Team, File
 
 __all__: list[str] = ['parse_iso', 'to_user', 'to_team', 'to_file']
 
