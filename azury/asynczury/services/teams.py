@@ -14,11 +14,12 @@
 
 from __future__ import annotations
 
-from azury.asynczury import Client, Team as TeamType
+from azury.asynczury import Client
+from azury.types import Team
 
 
-class Team:
-    def __init__(self, client: Client, data: TeamType) -> None:
+class Teams:
+    def __init__(self, client: Client, data: Team) -> None:
         self.client: Client = client
-        self.data: TeamType = data
+        self.data: Team = data
         self.service: str = 'teams'
