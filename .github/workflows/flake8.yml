@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  3.9:
+  python3.9:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python 3.9
@@ -21,4 +21,4 @@ jobs:
       - name: Run flake8
         uses: suo/flake8-github-action@releases/v1
         with:
-          checkName: '3.9'
+          checkName: 'python3.9'
