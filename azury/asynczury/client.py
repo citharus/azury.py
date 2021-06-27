@@ -16,11 +16,11 @@ from __future__ import annotations
 
 import asyncio
 import logging
-import sys
 from types import TracebackType
 from typing import Any, Optional, Type
 
 import aiohttp
+import sys
 from yarl import URL
 
 from azury import __link__
