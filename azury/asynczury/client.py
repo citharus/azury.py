@@ -68,8 +68,8 @@ class Client:
     >>> token = "TOKEN"
     >>> async def main() -> None:
     ...     async with Client(token) as client:
-    ...         print(client.session)
-    <aiohttp.client.ClientSession object at 0x7f8a6faaea00>
+    ...         print(await client.user())
+    <azury.asynczury.services.users.Users object at 0x7f4b86faabe0>
     """
 
     def __init__(
