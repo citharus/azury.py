@@ -25,6 +25,7 @@ from yarl import URL
 
 from azury import __link__
 from azury.asynczury import __version__
+from azury.utils import to_user
 
 __all__: list[str] = ["Client"]
 
@@ -170,3 +171,10 @@ class Client:
             endpoint,
             **params,
         )
+
+    async def user(self) -> Users:
+        from azury.asynczury import Users
+        user: User = to_user(
+            (await (await self._get('users', ['data'])).json())['user'],
+        )
+        return Users(self, user)
