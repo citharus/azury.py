@@ -61,7 +61,7 @@ def to_user(data: Dict[str, Union[str, list]]) -> User:
         token=data['token'],
         created_at=parse_iso(data['createdAt']),
         updated_at=parse_iso(data['updatedAt']),
-        username=data['username']
+        username=data['username'],
     )
 
 
@@ -116,5 +116,5 @@ def to_file(data: Dict[str, Union[str, bool, int, list]]) -> File:
         size=data['size'],
         type=data['type'],
         created_at=parse_iso(data['createdAt']),
-        updated_at=parse_iso(data['updatedAt'])
+        updated_at=parse_iso(data['updatedAt']),
     )
