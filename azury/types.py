@@ -51,9 +51,6 @@ class File:
     """The :class:`dataclass` representing a :class:`File`."""
     flags: list
     id: str
-    archived: bool
-    trashed: bool
-    favorite: bool
     downloads: int
     views: int
     user: int
@@ -62,3 +59,6 @@ class File:
     type: str
     created_at: datetime
     updated_at: datetime
+    archived: bool = None
+    trashed: bool = None
+    favorite: bool = None
