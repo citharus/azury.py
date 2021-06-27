@@ -24,6 +24,7 @@ import sys
 from yarl import URL
 
 from azury.asynczury import __version__, __link__
+from azury.asynczury.services.users import Users
 from azury.utils import to_user
 
 __all__: list[str] = ["Client"]
@@ -172,7 +173,6 @@ class Client:
         )
 
     async def user(self) -> Users:
-        from azury.asynczury import Users
         user: User = to_user(
             (await (await self._get('users', ['data'])).json())['user'],
         )
