@@ -19,6 +19,8 @@ from typing import Union
 import aiohttp
 from yarl import URL
 
+from azury.asynczury.client import Client
+from azury.types import File
 from azury.utils import to_file
 
 __all__: list[str] = ['Base']
