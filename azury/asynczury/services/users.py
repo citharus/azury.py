@@ -28,10 +28,7 @@ class Users(Base):
     async def teams(self) -> list[Teams]:
         teams: list[Teams] = [
             to_team(team) for team in await (
-                await self.client._get(
-                    self.service,
-                    ['teams'],
-                )
+                await self.client._get(self.service, ['teams'])
             ).json()
         ]
         return teams
