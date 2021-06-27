@@ -19,7 +19,7 @@ from typing import Union
 import aiohttp
 from yarl import URL
 
-from azury.asynczury.client import Client
+import azury.asynczury as azury
 from azury.types import File
 from azury.utils import to_file
 
@@ -27,8 +27,8 @@ __all__: list[str] = ['Base']
 
 
 class Base:
-    def __init__(self, client: Client, service: str) -> None:
-        self.client: Client = client
+    def __init__(self, client: azury.Client, service: str) -> None:
+        self.client: azury.Client = client
         self.service: str = service
 
     async def short_link(self, file: Union[File, str]) -> URL:
