@@ -19,6 +19,4 @@ jobs:
       - name: Install flake8
         run: pip install flake8
       - name: Run flake8
-        uses: cclauss/GitHub-Action-for-Flake8@v0.5.0
-        with:
-          args: flake8 . --count --show-source --statistics
+        run: flake8 .
