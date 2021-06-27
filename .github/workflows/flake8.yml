@@ -21,4 +21,5 @@ jobs:
       - name: Run flake8
         uses: suo/flake8-github-action@releases/v1
         with:
-          checkName: 'python3.9'
+          checkName: 'python3_9'
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
