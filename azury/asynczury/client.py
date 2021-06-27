@@ -23,8 +23,7 @@ import aiohttp
 import sys
 from yarl import URL
 
-from azury import __link__
-from azury.asynczury import __version__
+from azury.asynczury import __version__, __link__
 from azury.utils import to_user
 
 __all__: list[str] = ["Client"]
