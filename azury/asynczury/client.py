@@ -17,7 +17,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from types import TracebackType
-from typing import Any, Optional, Type, Dict
+from typing import Any, Optional, Type
 
 import aiohttp
 import sys
