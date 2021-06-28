@@ -22,7 +22,7 @@ __version__ = '0.0.0'
 import logging
 from collections import namedtuple
 
-from azury import asynczury
+import azury.asynczury as asynczury
 from azury.types import *
 from azury.utils import *
 
