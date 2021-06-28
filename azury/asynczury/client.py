@@ -23,9 +23,8 @@ import aiohttp
 import sys
 from yarl import URL
 
-from azury.asynczury import __version__, __link__
-from azury.asynczury.services.users import Users
-from azury.utils import to_user
+import azury.asynczury as asynczury
+import azury.asynczury.utils as utils
 
 __all__: list[str] = ["Client"]
 
@@ -88,8 +87,8 @@ class Client:
                 connector=connector,
                 loop=loop,
                 headers={
-                    'User-Agent': f'azury.py[asynczury]{__version__[:5]} '
-                                  f'({__link__}) Python{sys.version[:5]} '
+                    'User-Agent': f'azury.py[asynczury]{asynczury.__version__[:5]} '
+                                  f'({asynczury.__link__}) Python{sys.version[:5]} '
                                   f'aiohttp{aiohttp.__version__[:5]}',
                 }
             )
@@ -172,8 +171,6 @@ class Client:
             **params,
         )
 
-    async def user(self) -> Users:
-        user: User = to_user(
-            (await (await self._get('users', ['data'])).json())['user'],
-        )
-        return Users(self, user)
+    async def user(self) -> asynczury.User:
+        data = await (await self._get('users', ['data'])).json()
+        return utils.to_user(self, data['user'])
