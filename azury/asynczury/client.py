@@ -152,8 +152,8 @@ class Client:
             service: str,
             endpoint: list[str],
             **params: Any,
-    ) -> bool:
-        return 'Success' in await self._request(
+    ) -> Any:
+        return await self._request(
             'PUT',
             service,
             endpoint,
