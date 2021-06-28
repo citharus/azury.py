@@ -119,7 +119,7 @@ class Client:
             service: str,
             endpoint: list[str],
             **params: Any,
-    ) -> Dict[str, Any]:
+    ) -> Any:
         url: URL = URL('/'.join([self.base, service, *endpoint]))
         params: dict = dict(**params, token=self.token)
 
@@ -136,7 +136,7 @@ class Client:
             service: str,
             endpoint: list[str],
             **params: Any,
-    ) -> Dict[str, Any]:
+    ) -> Any:
         return await self._request('GET', service, endpoint, **params)
 
     async def _post(
@@ -144,7 +144,7 @@ class Client:
             service: str,
             endpoint: list[str],
             **params: Any,
-    ) -> Dict[str, Any]:
+    ) -> Any:
         return await self._request('POST', service, endpoint, **params)
 
     async def _put(
