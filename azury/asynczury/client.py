@@ -87,8 +87,10 @@ class Client:
                 connector=connector,
                 loop=loop,
                 headers={
-                    'User-Agent': f'azury.py[asynczury]{asynczury.__version__[:5]} '
-                                  f'({asynczury.__link__}) Python{sys.version[:5]} '
+                    'User-Agent': f'azury.py[asynczury]'
+                                  f'{asynczury.__version__[:5]} '
+                                  f'({asynczury.__link__}) '
+                                  f'Python{sys.version[:5]} '
                                   f'aiohttp{aiohttp.__version__[:5]}',
                 }
             )
