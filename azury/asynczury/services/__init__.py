@@ -14,3 +14,4 @@
 
 from .teams import *
 from .users import *
+from .files import *
