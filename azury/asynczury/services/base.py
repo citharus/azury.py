@@ -16,21 +16,26 @@ from __future__ import annotations
 
 import aiohttp
 
-import azury.asynczury as azury
-from azury.types import File
-from azury.utils import to_file
+import azury.asynczury as asynczury
+import azury.asynczury.utils as utils
 
 __all__: list[str] = ['Base']
 
 
 class Base:
-    def __init__(self, client: azury.Client, service: str) -> None:
-        self.client: azury.Client = client
+    def __init__(self, client: asynczury.Client, service: str) -> None:
+        self.client: asynczury.Client = client
         self.service: str = service
 
-    async def files(self) -> list[File]:
+    async def files(self) -> list[asynczury.File]:
         response: aiohttp.ClientResponse = await self.client._get(
             self.service,
             ['files'],
         )
-        return [to_file(file) for file in await response.json()]
+        return [
+            utils.to_file(
+                self.client,
+                self.service,
+                file,
+            ) for file in await response.json()
+        ]
