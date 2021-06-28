@@ -28,6 +28,25 @@ def to_file(
         data: Dict[str, Union[str, bool, int, list]],
         team: str = '',
 ) -> asynczury.File:
+    """A function to convert the files' data to a :class:`File` object.
+
+            Parameters
+            ----------
+            client: Client
+                The :class`Client` used to initialize the :class:`User`.
+            service: str
+                The service the file is bound to e.g. teams or users.
+            data: Dict[str, Union[str, bool, int, list]]
+                The files' data.
+            team: str
+                The team id, if the file belongs to a team.
+                Defaults to an empty string.
+
+            Return
+            ------
+            File
+                The converted :class:`File` object.
+            """
     return asynczury.File(
         client,
         service,
@@ -52,6 +71,20 @@ def to_user(
         client: asynczury.Client,
         data: dict,
 ) -> asynczury.User:
+    """A function to convert the user's data to a :class:`User` object.
+
+        Parameters
+        ----------
+        client: Client
+                The :class`Client` used to initialize the :class:`User`.
+        data: Dict[str, Union[str, list]]
+            The user's data.
+
+        Returns
+        -------
+        User
+            The converted :class:`User` object.
+        """
     return asynczury.User(
         client,
         avatar=data['avatar'],
