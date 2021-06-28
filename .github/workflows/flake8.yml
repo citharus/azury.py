@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  python3_9:
+  flake8:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
