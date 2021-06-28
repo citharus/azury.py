@@ -17,6 +17,9 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Optional
 
+import aiohttp
+from yarl import URL
+
 import azury.asynczury as asynczury
 from azury.types import File as FileType
 
@@ -62,3 +65,10 @@ class File(FileType):
         self.client: asynczury.Client = client
         self.service: str = service
         self.team: str = team
+
+    async def link(self) -> URL:
+        response: aiohttp.ClientResponse = await self.client._get(
+            self.service,
+            [self.team, 'files', self.id] if self.team else ['files', self.id]
+        )
+        return URL((await response.json())['url'])
