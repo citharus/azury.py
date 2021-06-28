@@ -14,21 +14,41 @@
 
 from __future__ import annotations
 
-from azury.utils import to_team
-from .base import Base
+from datetime import datetime
 
-__all__: list[str] = ['Users']
+import azury.asynczury as asynczury
+from azury.types import User as UserType
+
+__all__: list[str] = ['User']
 
 
-class Users(Base):
-    def __init__(self, client: Client, data: User) -> None:
-        super(Users, self).__init__(client, 'users')
-        self.data: User = data
+class User(UserType):
+    service: str = 'users'
 
-    async def teams(self) -> list[Teams]:
-        teams: list[Teams] = [
-            to_team(team) for team in await (
-                await self.client._get(self.service, ['teams'])
-            ).json()
-        ]
-        return teams
+    def __init__(
+            self,
+            client: asynczury.Client,
+            avatar: str,
+            flags: str,
+            connections: list[str],
+            access: list,
+            id: int,
+            ip: str,
+            token: str,
+            created_at: datetime,
+            updated_at: datetime,
+            username: str,
+    ) -> None:
+        super(User, self).__init__(
+            avatar=avatar,
+            flags=flags,
+            connections=connections,
+            access=access,
+            id=id,
+            ip=ip,
+            token=token,
+            created_at=created_at,
+            updated_at=updated_at,
+            username=username,
+        )
+        self.client: asynczury.Client = client
