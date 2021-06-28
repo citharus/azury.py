@@ -15,9 +15,8 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Dict
 
-import aiohttp
 from yarl import URL
 
 import azury.asynczury as asynczury
@@ -67,8 +66,8 @@ class File(FileType):
         self.team: str = team
 
     async def link(self) -> URL:
-        response: aiohttp.ClientResponse = await self.client._get(
+        response: Dict[str, str] = await self.client._get(
             self.service,
             [self.team, 'files', self.id] if self.team else ['files', self.id]
         )
-        return URL((await response.json())['url'])
+        return URL(response['url'])
