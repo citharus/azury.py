@@ -57,10 +57,7 @@ class User(UserType):
 
     async def files(self) -> list[asynczury.File]:
         response: list[Dict[str, Union[str, bool, int, list]]] = \
-            await self.client._get(
-                self.service,
-                ['files'],
-            )
+            await self.client._get(self.service, ['files'])
         return [
             utils.to_file(
                 self.client,
