@@ -14,10 +14,7 @@
 
 from __future__ import annotations
 
-from typing import Union
-
 import aiohttp
-from yarl import URL
 
 import azury.asynczury as azury
 from azury.types import File
@@ -30,13 +27,6 @@ class Base:
     def __init__(self, client: azury.Client, service: str) -> None:
         self.client: azury.Client = client
         self.service: str = service
-
-    async def short_link(self, file: Union[File, str]) -> URL:
-        response: aiohttp.ClientResponse = await self.client._get(
-            self.service,
-            ['files', (file if isinstance(file, str) else file.id)]
-        )
-        return URL((await response.json())['url'])
 
     async def files(self) -> list[File]:
         response: aiohttp.ClientResponse = await self.client._get(
