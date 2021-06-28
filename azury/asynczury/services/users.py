@@ -15,8 +15,10 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Dict, Union
 
 import azury.asynczury as asynczury
+import azury.asynczury.utils as utils
 from azury.types import User as UserType
 
 __all__: list[str] = ['User']
@@ -52,3 +54,17 @@ class User(UserType):
             username=username,
         )
         self.client: asynczury.Client = client
+
+    async def files(self) -> list[asynczury.File]:
+        response: list[Dict[str, Union[str, bool, int, list]]] = \
+            await self.client._get(
+                self.service,
+                ['files'],
+            )
+        return [
+            utils.to_file(
+                self.client,
+                self.service,
+                file,
+            ) for file in response
+        ]
