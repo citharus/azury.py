@@ -12,10 +12,12 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+from __future__ import annotations
+
 from datetime import datetime
 from typing import Optional
 
-from azury.asynczury.client import Client
+import azury.asynczury as asynczury
 from azury.types import File as FileType
 
 __all__: list[str] = ['File']
@@ -24,7 +26,7 @@ __all__: list[str] = ['File']
 class File(FileType):
     def __init__(
             self,
-            client: Client,
+            client: asynczury.Client,
             service: str,
             team: str,
             *,
@@ -57,6 +59,6 @@ class File(FileType):
             created_at,
             updated_at,
         )
-        self.client: Client = client
+        self.client: asynczury.Client = client
         self.service: str = service
         self.team: str = team
