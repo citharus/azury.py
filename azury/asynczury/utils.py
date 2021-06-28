@@ -46,3 +46,22 @@ def to_file(
         created_at=parse_iso(data['createdAt']),
         updated_at=parse_iso(data['updatedAt']),
     )
+
+
+def to_user(
+        client: asynczury.Client,
+        data: dict,
+) -> asynczury.User:
+    return asynczury.User(
+        client,
+        avatar=data['avatar'],
+        flags=data['flags'],
+        connections=data['connections'],
+        access=data['access'],
+        id=int(data['_id']),
+        ip=data['ip'],
+        token=data['token'],
+        created_at=parse_iso(data['createdAt']),
+        updated_at=parse_iso(data['updatedAt']),
+        username=data['username'],
+    )
