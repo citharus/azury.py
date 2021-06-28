@@ -19,7 +19,7 @@ from typing import Union, Dict
 import azury.asynczury as asynczury
 from azury.utils import parse_iso
 
-__all__: list[str] = ['to_file']
+__all__: list[str] = ['to_file', 'to_user']
 
 
 def to_file(
