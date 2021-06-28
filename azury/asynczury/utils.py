@@ -12,22 +12,23 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+from __future__ import annotations
+
 from typing import Union, Dict
 
-from azury.asynczury.client import Client
-from azury.asynczury.services.files import File
+import azury.asynczury as asynczury
 from azury.utils import parse_iso
 
 __all__: list[str] = ['to_file']
 
 
 def to_file(
-        client: Client,
+        client: asynczury.Client,
         service: str,
         data: Dict[str, Union[str, bool, int, list]],
         team: str = '',
-) -> File:
-    return File(
+) -> asynczury.File:
+    return asynczury.File(
         client,
         service,
         team,
