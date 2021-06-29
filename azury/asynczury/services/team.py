@@ -28,7 +28,7 @@ class Team(TeamType):
     def __init__(
             self,
             client: asynczury.Client,
-            members: list[str],
+            members: list[int],
             icon: str,
             flags: list,
             id: str,
