@@ -75,15 +75,6 @@ class File(FileType):
     async def clone(self) -> URL:
         response: Dict[str, str] = await self.client._put(
             self.service,
-            [
-                self.team,
-                'files',
-                self.id,
-                'clone',
-            ] if self.team else [
-                'files',
-                self.id,
-                'clone',
-            ]
+            ['/'.join([self.team, 'files', self.id, 'clone']).lstrip('/')]
         )
         return URL(response['url'])
