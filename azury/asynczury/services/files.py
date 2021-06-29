@@ -68,7 +68,7 @@ class File(FileType):
     async def link(self) -> URL:
         response: Dict[str, str] = await self.client._get(
             self.service,
-            [self.team, 'files', self.id] if self.team else ['files', self.id]
+            ['/'.join([self.team, 'files', self.id]).lstrip('/')]
         )
         return URL(response['url'])
 
