@@ -27,6 +27,85 @@ logger: logging.Logger = logging.getLogger(__name__)
 
 
 class User(UserType):
+    """The representation of an asynczury :class:`User`.
+
+    The `User` provides the methods for user specific actions, and
+    contains the `azury.gg`_ user data.
+
+    Warnings
+    --------
+    The `User` class should not be used directly. The :class:`asynczury.Client`
+    provides a method to get the `User`.
+
+    Parameters
+    ----------
+    client: :class:`asynczury.Client`
+        The `Client` used by the `User` ``Methods``.
+    avatar: str
+        The `avatar` of the `User`.
+    flags: str
+        The `flags` of the `User`.
+    connections: list[str]
+        The `connections` of the `User`.
+    access: list
+        The `access` of the `User`.
+    id: int
+        The `id` of the `User`
+    ip: str
+        The encrypted `ip` of the `User`.
+    token: str
+        The personal access `token` of the `User`. The `token` is the one given
+        to the :class:`asynczury.Client`.
+    created_at: datetime
+        The time of the creation of the account.
+    updated_at: datetime
+        The last time the account was updated.
+    username: str
+        The username of the account.
+
+    Attributes
+    ----------
+    client: :class:`asynczury.Client`
+        The `Client` used by the `User` methods.
+    service: str
+        The default service used by the users ``Methods``.
+    avatar: str
+        The `avatar` of the `User`.
+    flags: str
+        The `flags` of the `User`.
+    connections: list[str]
+        The `connections` of the `User`.
+    access: list
+        The `access` of the `User`.
+    id: int
+        The `id` of the `User`
+    ip: str
+        The encrypted `ip` of the `User`.
+    token: str
+        The personal access `token` of the `User`. The `token` is the one given
+        to the :class:`asynczury.Client`.
+    created_at: datetime
+        The time of the creation of the account.
+    updated_at: datetime
+        The last time the account was updated.
+    username: str
+        The `username` of the account.
+
+    Methods
+    -------
+    files()
+        List all personal files of the `User`.
+    teams()
+        List all teams the `User` is part of.
+    get(file: Union[:class:`asynczury.File`, str])
+        Get an individual File either by the id or an existing
+        :class:`asynczury.File`.
+    delete()
+        Delete the account permanently.
+
+    .. _azury.gg:
+        https://azury.gg/
+    """
     service: str = 'users'
 
     def __init__(
