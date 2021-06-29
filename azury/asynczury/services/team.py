@@ -19,6 +19,8 @@ from datetime import datetime
 import azury.asynczury as asynczury
 from azury.types import Team as TeamType
 
+__all__: list[str] = ['Team']
+
 
 class Team(TeamType):
     service: str = 'teams'
