@@ -128,7 +128,6 @@ class Client:
             url,
             params=params,
         )
-        logger.info(f'Send {method} request to {url}')
         return await response.json()
 
     async def _get(
