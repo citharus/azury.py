@@ -51,7 +51,7 @@ async def to_file(
         client,
         service,
         team,
-        flags=data['flags'],
+        flags=data['flags'] if 'flags' in data else None,
         id=data['_id'],
         archived='archived' in data['flags'],
         trashed='trashed' in data['flags'],
