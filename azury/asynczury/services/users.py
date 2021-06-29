@@ -60,7 +60,7 @@ class User(UserType):
     async def files(self) -> list[asynczury.File]:
         response: list[Dict[str, Union[str, bool, int, list]]] = \
             await self.client._get(self.service, ['files'])
-        logger.info(f'Requested files from {self.id}')
+        logger.info(f'Requested files from user {self.id}')
         return [
             await utils.to_file(
                 self.client,
