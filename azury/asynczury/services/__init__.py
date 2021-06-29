@@ -12,7 +12,8 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from .users import *
 from .files import *
+from .team import *
+from .users import *
 
-__all__: list[str] = ['User', 'File']
+__all__: list[str] = ['User', 'File', 'Team']
