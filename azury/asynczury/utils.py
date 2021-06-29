@@ -62,7 +62,8 @@ async def to_file(
         name=data['name'],
         size=data['size'],
         type=data['type'],
-        created_at=parse_iso(data['createdAt']),
+        created_at=parse_iso(data['createdAt'])
+        if 'createdAt' in data else parse_iso(data['uploadedAt']),
         updated_at=parse_iso(data['updatedAt']),
     )
 
