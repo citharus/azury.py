@@ -106,9 +106,9 @@ def to_file(data: Dict[str, Union[str, bool, int, list]]) -> File:
     return File(
         flags=data['flags'],
         id=data['_id'],
-        archived=data['archived'] if 'archived' in data else None,
-        trashed=data['trashed'] if 'trashed' in data else None,
-        favorite=data['favorite'] if 'favorite' in data else None,
+        archived='archived' in data['flags'],
+        trashed='trashed' in data['flags'],
+        favorite='favorite' in data['flags'],
         downloads=data['downloads'] if 'downloads' in data else None,
         views=data['views'] if 'views' in data else None,
         user=int(data['user']),
