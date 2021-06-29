@@ -44,16 +44,16 @@ class User(UserType):
             username: str,
     ) -> None:
         super(User, self).__init__(
-            avatar=avatar,
-            flags=flags,
-            connections=connections,
-            access=access,
-            id=id,
-            ip=ip,
-            token=token,
-            created_at=created_at,
-            updated_at=updated_at,
-            username=username,
+            avatar,
+            flags,
+            connections,
+            access,
+            id,
+            ip,
+            token,
+            created_at,
+            updated_at,
+            username,
         )
         self.client: asynczury.Client = client
 
