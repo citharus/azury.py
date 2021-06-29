@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import logging
 from datetime import datetime
 from typing import Optional, Dict
 
@@ -23,6 +24,7 @@ import azury.asynczury as asynczury
 from azury.types import File as FileType
 
 __all__: list[str] = ['File']
+logger: logging.Logger = logging.getLogger(__name__)
 
 
 class File(FileType):
@@ -70,6 +72,7 @@ class File(FileType):
             self.service,
             ['/'.join([self.team, 'files', self.id]).lstrip('/')],
         )
+        logger.info(f'Requested short link of {self.id} ({response["url"]})')
         return URL(response['url'])
 
     async def clone(self) -> URL:
