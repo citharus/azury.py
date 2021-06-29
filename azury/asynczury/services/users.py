@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import logging
 from datetime import datetime
 from typing import Dict, Union
 
@@ -22,6 +23,7 @@ import azury.asynczury.utils as utils
 from azury.types import User as UserType
 
 __all__: list[str] = ['User']
+logger: logging.Logger = logging.getLogger(__name__)
 
 
 class User(UserType):
@@ -58,6 +60,7 @@ class User(UserType):
     async def files(self) -> list[asynczury.File]:
         response: list[Dict[str, Union[str, bool, int, list]]] = \
             await self.client._get(self.service, ['files'])
+        logger.info(f'Requested files from {self.id}')
         return [
             await utils.to_file(
                 self.client,
