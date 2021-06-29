@@ -59,7 +59,7 @@ class User(UserType):
         response: list[Dict[str, Union[str, bool, int, list]]] = \
             await self.client._get(self.service, ['files'])
         return [
-            utils.to_file(
+            await utils.to_file(
                 self.client,
                 self.service,
                 file,
