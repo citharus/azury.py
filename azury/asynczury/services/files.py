@@ -78,3 +78,10 @@ class File(FileType):
             ['/'.join([self.team, 'files', self.id, 'clone']).lstrip('/')]
         )
         return URL(response['url'])
+
+    async def delete(self) -> bool:
+        response: bool = await self.client._delete(
+            self.service,
+            ['/'.join([self.team, 'files', self.id, 'delete']).lstrip('/')],
+        )
+        return response
