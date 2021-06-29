@@ -22,7 +22,7 @@ from azury.utils import parse_iso
 __all__: list[str] = ['to_file', 'to_user']
 
 
-def to_file(
+async def to_file(
         client: asynczury.Client,
         service: str,
         data: Dict[str, Union[str, bool, int, list]],
@@ -67,7 +67,7 @@ def to_file(
     )
 
 
-def to_user(
+async def to_user(
         client: asynczury.Client,
         data: dict,
 ) -> asynczury.User:
