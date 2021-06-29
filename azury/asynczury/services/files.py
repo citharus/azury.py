@@ -88,4 +88,5 @@ class File(FileType):
             self.service,
             ['/'.join([self.team, 'files', self.id, 'delete']).lstrip('/')],
         )
+        logger.info(f'Deleted file {self.id}')
         return response
