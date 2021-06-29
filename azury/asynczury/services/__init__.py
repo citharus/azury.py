@@ -14,3 +14,5 @@
 
 from .users import *
 from .files import *
+
+__all__: list[str] = ['User', 'File']
