@@ -86,3 +86,6 @@ class User(UserType):
                 team,
             ) for team in response
         ]
+
+    async def delete(self) -> bool:
+        return await self.client._delete(self.service, ['delete'])
