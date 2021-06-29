@@ -19,7 +19,7 @@ from typing import Union, Dict
 import azury.asynczury as asynczury
 from azury.utils import parse_iso
 
-__all__: list[str] = ['to_file', 'to_user']
+__all__: list[str] = ['to_file', 'to_user', 'to_team']
 
 
 async def to_file(
@@ -97,4 +97,35 @@ async def to_user(
         created_at=parse_iso(data['createdAt']),
         updated_at=parse_iso(data['updatedAt']),
         username=data['username'],
+    )
+
+
+async def to_team(
+        client: asynczury.Client,
+        data: Dict[str, Union[str, list]],
+) -> asynczury.Team:
+    """A function to convert the teams's data to a :class:`Team` object.
+
+        Parameters
+        ----------
+        client: Client
+                The :class`Client` used to initialize the :class:`User`.
+        data: Dict[str, Union[str, list]]
+            The teams's data.
+
+        Returns
+        -------
+        Team
+            The converted :class:`Team` object.
+        """
+    return asynczury.Team(
+        client,
+        members=[int(user) for user in data['members']],
+        icon=data['icon'],
+        flags=data['flags'],
+        id=data['_id'],
+        name=data['name'],
+        owner=int(data['owner']),
+        created_at=parse_iso(data['createdAt']),
+        updated_at=parse_iso(data['updatedAt']),
     )
