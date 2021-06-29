@@ -162,7 +162,7 @@ class Client:
             **params: Any,
     ) -> bool:
         return 'Success' in await self._request(
-            'POST',
+            'DELETE',
             service,
             endpoint,
             **params,
