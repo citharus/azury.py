@@ -68,14 +68,14 @@ class File(FileType):
     async def link(self) -> URL:
         response: Dict[str, str] = await self.client._get(
             self.service,
-            ['/'.join([self.team, 'files', self.id]).lstrip('/')]
+            ['/'.join([self.team, 'files', self.id]).lstrip('/')],
         )
         return URL(response['url'])
 
     async def clone(self) -> URL:
         response: Dict[str, str] = await self.client._put(
             self.service,
-            ['/'.join([self.team, 'files', self.id, 'clone']).lstrip('/')]
+            ['/'.join([self.team, 'files', self.id, 'clone']).lstrip('/')],
         )
         return URL(response['url'])
 
