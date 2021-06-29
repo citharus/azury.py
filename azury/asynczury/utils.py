@@ -58,7 +58,7 @@ async def to_file(
         favorite='favorite' in data['flags'] if 'flags' in data else None,
         downloads=data['downloads'] if 'downloads' in data else None,
         views=data['views'] if 'views' in data else None,
-        user=int(data['user']),
+        user=int(data['user']) if 'user' in data else int(data['author']),
         name=data['name'],
         size=data['size'],
         type=data['type'],
