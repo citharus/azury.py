@@ -103,6 +103,11 @@ class User(UserType):
     delete()
         Delete the account permanently.
 
+    See Also
+    --------
+    azury.asynczury.Client.user:
+        The :class:`asynczury.Client` method to get a `User`.
+
     .. _azury.gg:
         https://azury.gg/
     """
