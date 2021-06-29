@@ -34,7 +34,7 @@ class File(FileType):
             service: str,
             team: str,
             *,
-            flags: list,
+            flags: list[str],
             id: str,
             archived: Optional[bool],
             trashed: Optional[bool],
