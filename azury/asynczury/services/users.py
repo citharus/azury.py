@@ -68,3 +68,14 @@ class User(UserType):
                 file,
             ) for file in response
         ]
+
+    async def teams(self) -> list[asynczury.Team]:
+        response: list[Dict[str, Union[str, list, int]]] = \
+            await self.client._get(self.service, ['teams'])
+        logger.info(f'Requested user {self.id} teams')
+        return [
+            await utils.to_team(
+                self.client,
+                team,
+            ) for team in response
+        ]
