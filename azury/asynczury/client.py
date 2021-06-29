@@ -170,4 +170,4 @@ class Client:
 
     async def user(self) -> asynczury.User:
         data = await self._get('users', ['data'])
-        return utils.to_user(self, data['user'])
+        return await utils.to_user(self, data['user'])
