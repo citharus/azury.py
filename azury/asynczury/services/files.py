@@ -80,6 +80,7 @@ class File(FileType):
             self.service,
             ['/'.join([self.team, 'files', self.id, 'clone']).lstrip('/')],
         )
+        logger.info(f'Cloned file {self.id} to {response["url"]}')
         return URL(response['url'])
 
     async def delete(self) -> bool:
