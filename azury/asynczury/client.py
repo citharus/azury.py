@@ -153,12 +153,7 @@ class Client:
             endpoint: list[str],
             **params: Any,
     ) -> Any:
-        return await self._request(
-            'PUT',
-            service,
-            endpoint,
-            **params,
-        )
+        return await self._request('PUT', service, endpoint, **params)
 
     async def _delete(
             self,
