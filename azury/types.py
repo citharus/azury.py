@@ -50,7 +50,7 @@ class Team:
 @dataclass
 class File:
     """The :class:`dataclass` representing a :class:`File`."""
-    flags: list
+    flags: list[str]
     id: str
     archived: Optional[bool]
     trashed: Optional[bool]
