@@ -60,3 +60,6 @@ class Team(TeamType):
             self.service,
             [self.id, 'transfer', str(user)],
         )
+
+    async def leave(self):
+        return await self.client._put(self.service, [self.id, 'leave'])
