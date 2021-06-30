@@ -15,6 +15,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Union
 
 import azury.asynczury as asynczury
 from azury.types import Team as TeamType
@@ -48,3 +49,14 @@ class Team(TeamType):
             updated_at,
         )
         self.client: asynczury.Client = client
+
+    async def transfer(self, user: Union[asynczury.User, int, str]):
+        if isinstance(user, str) and not user.startswith('@'):
+            user: str = f'@{user}'
+        elif isinstance(user, asynczury.User):
+            user: int = user.id
+
+        return await self.client._put(
+            self.service,
+            [self.id, 'transfer', str(user)],
+        )
